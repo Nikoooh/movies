@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model elokuva {
+  id           Int     @id @default(autoincrement())
+  kayttajaId   Int
+  elokuvaId    Int
+  title        String
+  overview     String
+  release_date String
+  vote_average String
+  vote_count   String
+  poster_path  String
+  isMovie      Boolean
+}
+
+model kayttaja {
+  id             Int    @id @default(autoincrement())
+  kayttajatunnus String
+  salasana       String
+}
